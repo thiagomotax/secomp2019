@@ -1,0 +1,12 @@
+-logos (receber do jesus)
+-patrocinadores acima da mensagem(nova div)
+-campeonato de jogos (menu)
+
+
+extras
+-game jam (menu)
+-email (pegar senha)
+-corrida de carrinho
+
+
+dia 19/08
