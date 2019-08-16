@@ -137,7 +137,7 @@
                   <div class="row">
                     <div class="col-md-12 text-center">
                       <div class="form-group">
-                        <a href="viewMinicursos.php" class="btn btn-default">Cancelar</a>
+                        <a href="viewExtras.php" class="btn btn-default">Cancelar</a>
                         <button id="btnEditarExtra" class="btn btn-primary" type="submit">Editar</button>
                       </div>
                     </div>

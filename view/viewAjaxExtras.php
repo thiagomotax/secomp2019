@@ -62,35 +62,35 @@
             }
 
             echo raw_json_encode($datax);
+        
+        }else if($RowUsuarios['nivelUsuario'] == 1){
+
+            echo '<div class="row">';
+            while ($RowExtras = $stmtExtras->fetch(PDO::FETCH_ASSOC)) {
+
+                echo
+                '
+                      <div class="col-md-6 col-md-offset-0 margin-top--25">
+                        <div class="card">
+                            <div class="card-body" style="min-height: 120px; height: auto">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-12"><b>Extra: </b>'.$RowExtras['nomeExtra'].'</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12"><b>Informações: </b>'.$RowExtras['infoExtra'].'</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      </div>';
+
+            }
         }
-        // }else if($RowUsuarios['nivelUsuario'] == 1){
-
-        //     echo '<div class="row">';
-        //     while ($RowExtras = $stmtExtras->fetch(PDO::FETCH_ASSOC)) {
-
-        //         echo
-        //         '
-        //               <div class="col-md-6 col-md-offset-0 margin-top--25">
-        //                 <div class="card">
-        //                     <div class="card-body" style="min-height: 120px; height: auto">
-        //                         <div class="row">
-        //                             <div class="col-md-12">
-        //                                 <div class="row">
-        //                                     <div class="col-md-12"><b>Extra: </b>'.$RowExtras['nomeExtra'].'</div>
-        //                                 </div>
-        //                                 <div class="row">
-        //                                     <div class="col-md-12"><b>Informações: </b>'.$RowExtras['infoExtra'].'</div>
-        //                                 </div>
-        //                             </div>
-        //                         </div>
-        //                     </div>
-        //                 </div>
-        //               </div>';
-
-        //     }
-
     }else{
         header('Location: viewLogin.php');
     }
-
+    
 ?>

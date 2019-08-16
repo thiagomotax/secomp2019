@@ -21,6 +21,10 @@
         $stmtInscritos->execute();
         $count = $stmtInscritos->rowCount();
 
+        $stmtInscritosExtra = $RelatoriosDAO->runQuery("SELECT * FROM extras INNER JOIN inscricoesextras ON inscricoesextras.codExtra = extras.codExtra WHERE inscricoesextras.codUsuario = ".$_SESSION['user_id']."");
+        $stmtInscritosExtra->execute();
+        $count2 = $stmtInscritosExtra->rowCount();
+
         class PDF extends FPDF{
 
             function AutoPrint($dialog = false){
@@ -100,6 +104,40 @@
                 $pdf->SetTextColor(0, 0, 0);
                 $pdf->SetFont('Times', "", 12);
                 $pdf->Cell(170, 7, str_replace(" ? ", " - ", utf8_decode($RowInscritos['informacoesMinicurso'])), false, 0, "L", 0);
+
+            }
+
+        }else{
+
+            $pdf->SetFont("Times","B", 12);
+            $pdf->setXY("10","75");
+            $texto = "Você não realizou inscrição em nenhum minicurso.";
+            $pdf->MultiCell(190, 5, utf8_decode($texto), 0, 'C');
+
+        }
+
+        if($count2 > 0){
+
+            $pdf->Ln(8);
+            $pdf->SetX((20));
+            $pdf->SetTextColor(0, 0, 0);
+            $pdf->SetFont('Times', "B", 12);
+            $pdf->Cell(170, 7, utf8_decode("Extras inscritos: "), false, 0, "L", 0);
+            $i = 0;
+
+            while ($RowExtrasInscritos = $stmtInscritosExtra->fetch(PDO::FETCH_ASSOC)) {
+                $i++;
+                $pdf->Ln(7);
+                $pdf->SetX((20));
+                $pdf->SetTextColor(0, 0, 0);
+                $pdf->SetFont('Times', "", 12);
+                $pdf->Cell(170, 7, utf8_decode($i . " - " .$RowExtrasInscritos['nomeExtra']), false, 0, "L", 0);
+
+                $pdf->Ln(7);
+                $pdf->SetX((25));
+                $pdf->SetTextColor(0, 0, 0);
+                $pdf->SetFont('Times', "", 12);
+                $pdf->Cell(170, 7, str_replace(" ? ", " - ", utf8_decode($RowExtrasInscritos['infoExtra'])), false, 0, "L", 0);
 
             }
 
