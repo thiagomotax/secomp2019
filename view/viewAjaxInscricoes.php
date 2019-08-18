@@ -92,7 +92,8 @@
 
         }else if($RowUsuarios['nivelUsuario'] == 1){
 
-            echo '<h4>Inscrições dos Minicursos</h4>';
+            echo '<h2>Minicursos</h2>';
+            echo '<h5>Você pode realizar inscrição em até 3 minicursos.</h5>';
 
             while ($RowMinicursos = $stmtMinicursos->fetch(PDO::FETCH_ASSOC)) {
 
@@ -125,9 +126,9 @@
 
                 }
             }
-
-            echo '<h4>Extras</h4>';
-
+        
+            echo '<h2>Atividades extras</h2>';
+            echo '<h5>Você pode realizar a inscrição em quantas atividades extras desejar.</h5>';
             while ($RowExtra = $stmtExtras->fetch(PDO::FETCH_ASSOC)) {
 
                 $count = 0;

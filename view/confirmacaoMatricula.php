@@ -144,8 +144,8 @@
         }else{
 
             $pdf->SetFont("Times","B", 12);
-            $pdf->setXY("10","75");
-            $texto = "Você não realizou inscrição em nenhum minicurso.";
+            $pdf->setXY("10","80");
+            $texto = "";
             $pdf->MultiCell(190, 5, utf8_decode($texto), 0, 'C');
 
         }

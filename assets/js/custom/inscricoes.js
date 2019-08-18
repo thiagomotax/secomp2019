@@ -3,7 +3,6 @@ $(document).ready(function(){
 });
 function inscreverMinicurso(codMinicurso){
   var array = codMinicurso.split("_");
-  alert(array[1]);
   var descricaoMinicurso = $('#'+codMinicurso).attr("data-nome");
   if($("#"+codMinicurso).is(':checked')){
     swal({
@@ -27,7 +26,7 @@ function inscreverMinicurso(codMinicurso){
               $("#divMinicursos").load("viewAjaxInscricoes.php");
               $.notify({
                 title: "",
-                message: "Inscrição " + descricaoMinicurso + " realizada com sucesso! ",
+                message: "Inscrição no minicurso " + descricaoMinicurso + " realizada com sucesso! ",
                 icon: 'fa fa-check' 
               },{
                 type: "success",
@@ -75,7 +74,7 @@ function inscreverMinicurso(codMinicurso){
               $("#divMinicursos").load("viewAjaxInscricoes.php");
               $.notify({
                 title: "",
-                message: "Você tem direito de realizar inscrição em até 3 minicursos! ",
+                message: "Você só pode ter inscrição em até 3 minicursos! ",
                 icon: 'fa fa-times' 
               },{
                 type: "danger",
@@ -120,12 +119,11 @@ function inscreverMinicurso(codMinicurso){
           url:"../controller/InscricoesController.php",
           data: {acao: "cancInscricao", codMinicurso: array[1]},
           success: function(result){
-            alert(result);
             if(result == 1){
               $("#divMinicursos").load("viewAjaxInscricoes.php");
               $.notify({
                 title: "",
-                message: "Inscrição no extra " + nomeExtra + " cancelada com sucesso! ",
+                message: "Inscrição no minicurso " + descricaoMinicurso + " cancelada com sucesso! ",
                 icon: 'fa fa-check' 
               },{
                 type: "warning",
@@ -228,7 +226,7 @@ function inscreverExtra(codExtra){
             if(result == 1){
               $("#divMinicursos").load("viewAjaxInscricoes.php");
               $.notify({
-                title: "",
+                title: '',
                 message: "Inscrição no extra " + nomeExtra + " cancelada com sucesso! ",
                 icon: 'fa fa-check' 
               },{
@@ -451,125 +449,74 @@ $(document).ready(function(){
 
 $(document).ready(function(){
   $('#btnInscricao').click(function(){
+    $("#sign-form").validate({
+      rules: {
+        nome: { required: true, minlength: 5 },
+        cpf: { required: true, cpfBR: true },
+        email: { required: true, email: true },
+        senha: { required: true, minlength: 8 },
+        confirmasenha: { required: true, equalTo: '#senha'},
+      },
+      messages: {
+        nome: { required: 'Preencha seu nome!', minlength: "Digite seu nome completo!" },
+        cpf: { required: 'Preencha seu CPF!', cpfBR: "CPF inválido!" },
+        email: { required: "Preencha seu email!", email: "Digite um e-mail válido!" },
+        senha: { required: 'Preencha sua senha!',minlength: "Sua senha têm no mínimo 8 caracteres!" },
+        confirmasenha: { required: "Preencha a confirmação de senha", equalTo: "As senhas não conferem!"},
+      },
+      submitHandler: function (form) {
     var dados = $('#sign-form').serializeArray();
-    if((dados[0].value == "") || (dados[1].value == "") || (dados[2].value == "") || (dados[3].value == "") || (dados[4].value == "")){
-      $.notify({
-        title: "",
-        message: "Preencha todos os campos ",
-        icon: 'fa fa-check' 
-      },{
-        type: "danger",
-        placement: {
-          from: "top",
-          align: "right",
-        },
-        offset: 20,
-        spacing: 10,
-        z_index: 1031,
-        delay: 5000,
-        timer: 1000,
-        url_target: '_blank',
-        mouse_over: null,
-        animate: {
-          enter: 'animated fadeInDown',
-          exit: 'animated fadeOutUp'
-        }
-      });
-    }else{
-      var senha = dados[4].value;
-      var confirmaSenha = dados[5].value;
-      if(senha != confirmaSenha){
-        $.notify({
-          title: "",
-          message: "Senhas não correspondem! ",
-          icon: 'fa fa-check' 
-        },{
-          type: "danger",
-          placement: {
-            from: "top",
-            align: "right",
-          },
-          offset: 20,
-          spacing: 10,
-          z_index: 1031,
-          delay: 5000,
-          timer: 1000,
-          url_target: '_blank',
-          mouse_over: null,
-          animate: {
-            enter: 'animated fadeInDown',
-            exit: 'animated fadeOutUp'
-          }
-        });
-      }else{
+    $body = $("body");
+    $body.addClass("loading");  
         $.ajax({
           type:"POST",
           url:"../controller/UsuariosController.php",
           data:dados,
           success: function(result){
             if(result == 1){
+              $body.removeClass("loading");
               swal("", "Cadastro realizado com sucesso! Faça seu login", "success");
               $("#sign-form")[0].reset();
               setTimeout(function(){
                   location.href = 'viewLogin.php';
               }, 5000);               
             }else if(result == 2){
+              $body.removeClass("loading");
               swal("Oops...", "Erro ao realizar o cadastro! Tente novamente", "error");
               $("#sign-form")[0].reset();
-            }else if(result == 3){
-              swal("Oops...", "Preencha todos os campos", "error");
-              $("#sign-form")[0].reset();
-            }else if(result == 4){
-              $.notify({
-                title: "",
-                message: "CPF inválido! ",
-                icon: 'fa fa-check' 
-              },{
-                type: "danger",
-                placement: {
-                  from: "top",
-                  align: "right",
-                },
-                offset: 20,
-                spacing: 10,
-                z_index: 1031,
-                delay: 5000,
-                timer: 1000,
-                url_target: '_blank',
-                mouse_over: null,
-                animate: {
-                  enter: 'animated fadeInDown',
-                  exit: 'animated fadeOutUp'
-                }
-              });
-              $("#cpf").focus();
-            }else if(result == 5){
-              $.notify({
-                title: "",
-                message: "A senha precisa ter pelo menos 8 caracteres! ",
-                icon: 'fa fa-check' 
-              },{
-                type: "danger",
-                placement: {
-                  from: "top",
-                  align: "right",
-                },
-                offset: 20,
-                spacing: 10,
-                z_index: 1031,
-                delay: 5000,
-                timer: 1000,
-                url_target: '_blank',
-                mouse_over: null,
-                animate: {
-                  enter: 'animated fadeInDown',
-                  exit: 'animated fadeOutUp'
-                }
-              });
             }else if(result == 6){
+              $body.removeClass("loading");
+              $('input[name=cpf').val('');
               $.notify({
                 title: "",
                 message: "Este CPF já está em uso! ",
+                icon: 'fa fa-check' 
+              },{
+                type: "danger",
+                placement: {
+                  from: "top",
+                  align: "right",
+                },
+                offset: 20,
+                spacing: 10,
+                z_index: 1031,
+                delay: 5000,
+                timer: 1000,
+                url_target: '_blank',
+                mouse_over: null,
+                animate: {
+                  enter: 'animated fadeInDown',
+                  exit: 'animated fadeOutUp'
+                }
+                
+              });
+            }
+            else if(result == 7){
+              $body.removeClass("loading");
+              $('input[name=email').val('');
+              $.notify({
+                title: "",
+                message: "Este e-mail já está em uso! ",
                 icon: 'fa fa-check' 
               },{
                 type: "danger",
@@ -592,8 +539,70 @@ $(document).ready(function(){
             }
           }
         });
-      }
-    }
     return false;
+      }
+    });
   });
 });
+
+$.validator.addMethod( "cpfBR", function( value, element ) {
+	"use strict";
+
+	if ( this.optional( element ) ) {
+		return true;
+	}
+
+	// Removing special characters from value
+	value = value.replace( /([~!@#$%^&*()_+=`{}\[\]\-|\\:;'<>,.\/? ])+/g, "" );
+
+	// Checking value to have 11 digits only
+	if ( value.length !== 11 ) {
+		return false;
+	}
+
+	var sum = 0,
+		firstCN, secondCN, checkResult, i;
+
+	firstCN = parseInt( value.substring( 9, 10 ), 10 );
+	secondCN = parseInt( value.substring( 10, 11 ), 10 );
+
+	checkResult = function( sum, cn ) {
+		var result = ( sum * 10 ) % 11;
+		if ( ( result === 10 ) || ( result === 11 ) ) {
+			result = 0;
+		}
+		return ( result === cn );
+	};
+
+	// Checking for dump data
+	if ( value === "" ||
+		value === "00000000000" ||
+		value === "11111111111" ||
+		value === "22222222222" ||
+		value === "33333333333" ||
+		value === "44444444444" ||
+		value === "55555555555" ||
+		value === "66666666666" ||
+		value === "77777777777" ||
+		value === "88888888888" ||
+		value === "99999999999"
+	) {
+		return false;
+	}
+
+	// Step 1 - using first Check Number:
+	for ( i = 1; i <= 9; i++ ) {
+		sum = sum + parseInt( value.substring( i - 1, i ), 10 ) * ( 11 - i );
+	}
+
+	// If first Check Number (CN) is valid, move to Step 2 - using second Check Number:
+	if ( checkResult( sum, firstCN ) ) {
+		sum = 0;
+		for ( i = 1; i <= 10; i++ ) {
+			sum = sum + parseInt( value.substring( i - 1, i ), 10 ) * ( 12 - i );
+		}
+		return checkResult( sum, secondCN );
+	}
+	return false;
+
+}, "Please specify a valid CPF number" );

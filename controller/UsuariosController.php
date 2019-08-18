@@ -39,11 +39,6 @@
         $senha = $_POST['senha'];
         $nivel = 1;
 
-        if(!validaCPF($cpf)){
-            echo 4;
-        }else if(!lengthPassword($senha)){
-            echo 5;
-        }else{
             $Usuarios = new Usuarios();
             $Usuarios->setNome($nome);
             $Usuarios->setCPF($cpf);
@@ -51,7 +46,7 @@
             $Usuarios->setSenha($senha);
             $Usuarios->setNivel($nivel);
             $dao->add($Usuarios);
-        }
+
         
     }
 

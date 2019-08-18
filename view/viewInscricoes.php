@@ -33,7 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/main.min.css">
     <link rel="stylesheet" href="../assets/css/materialdesignicons.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/fonts/font-awesome/css/font-awesome.min.css">
-    <title>VI Secomp - Painel</title>
+    <title>VIII Secomp - Inscrições</title>
   </head>
   <body class="sidebar-mini fixed">
     <div class="wrapper">
@@ -90,7 +90,8 @@
                 '<ul class="sidebar-menu">
                   <li><a href="viewPainel.php"><i class="mdi mdi-view-dashboard mdi-lg"></i> <span>Painel</span></a></li>
                   <li><a href="viewMinicursos.php"><i class="mdi mdi-format-list-bulleted mdi-lg"></i> <span>Minicursos</span></a></li>
-                  <li  class="active"><a href="viewInscricoes.php"><i class="mdi mdi-checkbox-marked-outline mdi-lg"></i> <span>Inscrições</span></a></li>
+                  <li><a href="viewExtras.php"><i class="mdi mdi-plus-box mdi-lg"></i> <span>Extras</span></a></li>
+                  <li class="active"><a href="viewInscricoes.php"><i class="mdi mdi-checkbox-marked-outline mdi-lg"></i> <span>Inscrições</span></a></li>
                 </ul>';
             }
           ?>
@@ -168,10 +169,10 @@
                   echo '<div id="divJogos"></div>';
 
                 ?>
-                <div class="row" style="margin-top: 20px">
-                  <div class="col-md-12 text-left">
-                    <p style="font-weight: bold; font-size: 18px">Clique no botão abaixo para gerar a confirmação de matrícula</p>
-                    <a href="confirmacaoMatricula.php" class="btn btn-primary" target="_blank">Gerar</a>
+                <div class="row" style="margin-top: 40px">
+                  <div class="col-md-12 text-center">
+                    <!-- <p style="font-weight: bold; font-size: 18px">Clique no botão abaixo para gerar a confirmação de matrícula</p> -->
+                    <a href="confirmacaoMatricula.php" class="btn btn-primary" target="_blank">Gerar confirmação de matrícula</a>
                   </div>
                 </div>
               </div>

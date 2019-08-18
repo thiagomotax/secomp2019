@@ -42,7 +42,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/main.min.css">
     <link rel="stylesheet" href="../assets/css/materialdesignicons.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/fonts/font-awesome/css/font-awesome.min.css">
-    <title>VI Secomp - Painel</title>
+    <title>VIII Secomp - Painel</title>
   </head>
   <body class="sidebar-mini fixed">
     <div class="wrapper">

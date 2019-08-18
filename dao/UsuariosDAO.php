@@ -26,16 +26,18 @@
                 $senha = $Usuarios->getSenha();
                 $nivel = $Usuarios->getNivel();
 
-                // if(($nome == "") || ($cpf == "") || ($email == "") || ($senha == "")){
-                //     echo 3;
-                // }
 
                 $stmtIsCPF = $this->conn->prepare("SELECT * FROM usuarios WHERE cpfUsuario = '".$cpf."'");
                 $stmtIsCPF->execute();
 
+                $stmtIsEmail = $this->conn->prepare("SELECT * FROM usuarios WHERE emailUsuario = '".$email."'");
+                $stmtIsEmail->execute();
                 if($stmtIsCPF->rowCount() > 0){
                     echo 6;
-                }else{
+                }else if($stmtIsEmail->rowCount() > 0){
+                    echo 7;
+                }
+                else{
 
                     $senhaCriptografada = hash('sha512', md5($senha));
 

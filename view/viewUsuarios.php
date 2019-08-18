@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="../assets/css/materialdesignicons.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/responsive.dataTables.min.css">
-    <title>VI Secomp - Painel</title>
+    <title>VIII Secomp - Painel</title>
   </head>
   <body class="sidebar-mini fixed">
     <div class="wrapper">
@@ -88,6 +88,7 @@
                 '<ul class="sidebar-menu">
                   <li><a href="viewPainel.php"><i class="mdi mdi-view-dashboard mdi-lg"></i> <span>Painel</span></a></li>
                   <li><a href="viewMinicursos.php"><i class="mdi mdi-format-list-bulleted mdi-lg"></i> <span>Minicursos</span></a></li>
+                  <li><a href="viewExtras.php"><i class="mdi mdi-plus mdi-lg"></i> <span>Extras</span></a></li>
                   <li><a href="viewInscricoes.php"><i class="mdi mdi-checkbox-marked-outline mdi-lg"></i> <span>Inscrições</span></a></li>
                 </ul>';
             }
