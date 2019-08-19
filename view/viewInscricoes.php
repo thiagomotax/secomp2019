@@ -148,12 +148,11 @@
 
                   }else{
                     if($RowUsuarios['nivelUsuario'] == 1){
-                      echo '<div class="col-md-12 text-center">
-                      <a href="confirmacaoMatricula.php" class="btn btn-primary btn-block" target="_blank">Confirmação de matrícula</a>
-                    </div><br/>';
                       echo '<div id="divMinicursos" class="margin-top-30"></div>';
                       echo '<div class="row" style="margin-top: 40px">
-                      
+                      <div class="col-md-12 text-center">
+                        <a href="confirmacaoMatricula.php" class="btn btn-primary btn-block" target="_blank">Gerar relatório de inscrições</a>
+                      </div>
                     </div>';
                     }else if($RowUsuarios['nivelUsuario'] == 0){
                       echo 

@@ -91,7 +91,14 @@
             echo raw_json_encode($datax);
 
         }else if($RowUsuarios['nivelUsuario'] == 1){
-
+            echo '<ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#home">Minicursos</a></li>
+            <li><a data-toggle="tab" href="#menu1">Atividade extras</a></li>
+          </ul>
+          
+          <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+          ';
             echo '<h2 class="text-center">Minicursos</h2>';
             echo '<h5 class="text-center">Você pode realizar inscrição em até 3 minicursos.</h5>';
             echo '<div class="list-group checkbox-list-group">';
@@ -127,9 +134,10 @@
                 }
             }
             echo '</div><br/>';
-            echo '<div class="row margin-top-20"  style="border-top: 0.2px solid #CCC"></div>';
-            echo '<br/>';
-
+            echo '</div>';
+            echo '
+          <div id="menu1" class="tab-pane fade">
+          ';
             echo '<h2 class="text-center">Atividades extras</h2>';
             echo '<h5 class="text-center">Você pode realizar a inscrição em quantas atividades extras desejar.</h5>';
             echo '<div class="list-group checkbox-list-group">';
@@ -145,7 +153,7 @@
 
                     echo 
                     '
-                    <div class="list-group-item list-group-item-danger" style="margin-bottom: 1px">&nbsp;<label><input type="checkbox" onclick=inscreverExtra(this.id); id="codExtra_'.$RowExtra['codExtra'].'" data-nome="'.$RowExtra['nomeExtra'].'" name="minicursoCK[]" value="'.$RowExtra['codExtra'].'" checked>
+                    <div class="list-group-item list-group-item" style="margin-bottom: 1px">&nbsp;<label><input type="checkbox" onclick=inscreverExtra(this.id); id="codExtra_'.$RowExtra['codExtra'].'" data-nome="'.$RowExtra['nomeExtra'].'" name="minicursoCK[]" value="'.$RowExtra['codExtra'].'" checked>
                     <span class="list-group-item-text"><i class="fa fa-fw"></i>'.$RowExtra['nomeExtra'].'</span>
                     </label></div>';
 
@@ -159,6 +167,7 @@
 
                 }
             }
+            echo '</div></div>';
             echo '</div>';
         }
 
