@@ -33,12 +33,13 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/main.min.css">
     <link rel="stylesheet" href="../assets/css/materialdesignicons.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-checkbox-radio-list-group-item.min.css">
     <title>VIII Secomp - Inscrições</title>
   </head>
   <body class="sidebar-mini fixed">
     <div class="wrapper">
       <!-- Navbar-->
-      <header class="main-header hidden-print"><a class="logo" href="https://sistemas.riopomba.ifsudestemg.edu.br/secomp" target="_blank"><img class="logo-nav" src="../assets/images/secomp-transparente.png"></a>
+      <header class="main-header hidden-print"><a class="logo" href="#"><img class="logo-nav" src="../assets/images/secomp-transparente.png"></a>
         <nav class="navbar navbar-static-top">
           <!-- Sidebar toggle button--><a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
           <!-- Navbar Right Menu-->
@@ -147,7 +148,13 @@
 
                   }else{
                     if($RowUsuarios['nivelUsuario'] == 1){
+                      echo '<div class="col-md-12 text-center">
+                      <a href="confirmacaoMatricula.php" class="btn btn-primary btn-block" target="_blank">Confirmação de matrícula</a>
+                    </div><br/>';
                       echo '<div id="divMinicursos" class="margin-top-30"></div>';
+                      echo '<div class="row" style="margin-top: 40px">
+                      
+                    </div>';
                     }else if($RowUsuarios['nivelUsuario'] == 0){
                       echo 
                         '<table class="table table-hover table-bordered  table-custom" id="sampleTable">
@@ -169,12 +176,7 @@
                   echo '<div id="divJogos"></div>';
 
                 ?>
-                <div class="row" style="margin-top: 40px">
-                  <div class="col-md-12 text-center">
-                    <!-- <p style="font-weight: bold; font-size: 18px">Clique no botão abaixo para gerar a confirmação de matrícula</p> -->
-                    <a href="confirmacaoMatricula.php" class="btn btn-primary" target="_blank">Gerar confirmação de matrícula</a>
-                  </div>
-                </div>
+                
               </div>
             </div>
           </div>

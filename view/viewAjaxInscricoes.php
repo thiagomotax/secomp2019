@@ -92,9 +92,9 @@
 
         }else if($RowUsuarios['nivelUsuario'] == 1){
 
-            echo '<h2>Minicursos</h2>';
-            echo '<h5>Você pode realizar inscrição em até 3 minicursos.</h5>';
-
+            echo '<h2 class="text-center">Minicursos</h2>';
+            echo '<h5 class="text-center">Você pode realizar inscrição em até 3 minicursos.</h5>';
+            echo '<div class="list-group checkbox-list-group">';
             while ($RowMinicursos = $stmtMinicursos->fetch(PDO::FETCH_ASSOC)) {
 
                 $count = 0;
@@ -110,25 +110,29 @@
 
                     echo 
                     '
-                        <div class="animated-checkbox">
-                            <label><input type="checkbox" onclick=inscreverMinicurso(this.id); id="codMinicurso_'.$RowMinicursos['codMinicurso'].'" data-nome="'.$RowMinicursos['nomeMinicurso'].'" name="minicursoCK[]" value="'.$RowMinicursos['codMinicurso'].'" checked><span class="label-text">'.$RowMinicursos['nomeMinicurso'].'  ( '.($RowMinicursos['vagasMinicurso'] - $stmtVagasMinicursos->rowCount()).' vagas )</span>
-                            </label>
-                        </div>';
+                    <div class="list-group-item" style="margin-bottom: 1px">&nbsp;<label><input type="checkbox" onclick=inscreverMinicurso(this.id); id="codMinicurso_'.$RowMinicursos['codMinicurso'].'" data-nome="'.$RowMinicursos['nomeMinicurso'].'" name="minicursoCK[]" value="'.$RowMinicursos['codMinicurso'].'" checked>
+                    <span class="list-group-item-text"><i class="fa fa-fw"></i>'.$RowMinicursos['nomeMinicurso'].'  ( '.($RowMinicursos['vagasMinicurso'] - $stmtVagasMinicursos->rowCount()).' vagas )</span>
+                    </label></div>
+
+                        ';
 
                 }else{
 
                     echo 
                     '
-                        <div class="animated-checkbox">
-                            <label><input type="checkbox" onclick=inscreverMinicurso(this.id); id="codMinicurso_'.$RowMinicursos['codMinicurso'].'" data-nome="'.$RowMinicursos['nomeMinicurso'].'" name="minicursoCK[]" value="'.$RowMinicursos['codMinicurso'].'"><span class="label-text">'.$RowMinicursos['nomeMinicurso'].'  ( '.($RowMinicursos['vagasMinicurso'] - $stmtVagasMinicursos->rowCount()).' vagas )</span>
-                            </label>
-                        </div>';
+                    <div class="list-group-item style="margin-bottom: 1px"">&nbsp;<label><input type="checkbox" onclick=inscreverMinicurso(this.id); id="codMinicurso_'.$RowMinicursos['codMinicurso'].'" data-nome="'.$RowMinicursos['nomeMinicurso'].'" name="minicursoCK[]" value="'.$RowMinicursos['codMinicurso'].'">
+                    <span class="list-group-item-text"><i class="fa fa-fw"></i>'.$RowMinicursos['nomeMinicurso'].'  ( '.($RowMinicursos['vagasMinicurso'] - $stmtVagasMinicursos->rowCount()).' vagas )</span>
+                    </label></div>';
 
                 }
             }
-        
-            echo '<h2>Atividades extras</h2>';
-            echo '<h5>Você pode realizar a inscrição em quantas atividades extras desejar.</h5>';
+            echo '</div><br/>';
+            echo '<div class="row margin-top-20"  style="border-top: 0.2px solid #CCC"></div>';
+            echo '<br/>';
+
+            echo '<h2 class="text-center">Atividades extras</h2>';
+            echo '<h5 class="text-center">Você pode realizar a inscrição em quantas atividades extras desejar.</h5>';
+            echo '<div class="list-group checkbox-list-group">';
             while ($RowExtra = $stmtExtras->fetch(PDO::FETCH_ASSOC)) {
 
                 $count = 0;
@@ -141,22 +145,21 @@
 
                     echo 
                     '
-                        <div class="animated-checkbox">
-                            <label><input type="checkbox" onclick=inscreverExtra(this.id); id="codExtra_'.$RowExtra['codExtra'].'" data-nome="'.$RowExtra['nomeExtra'].'" name="minicursoCK[]" value="'.$RowExtra['codExtra'].'" checked><span class="label-text">'.$RowExtra['nomeExtra'].'</span>
-                            </label>
-                        </div>';
+                    <div class="list-group-item list-group-item-danger" style="margin-bottom: 1px">&nbsp;<label><input type="checkbox" onclick=inscreverExtra(this.id); id="codExtra_'.$RowExtra['codExtra'].'" data-nome="'.$RowExtra['nomeExtra'].'" name="minicursoCK[]" value="'.$RowExtra['codExtra'].'" checked>
+                    <span class="list-group-item-text"><i class="fa fa-fw"></i>'.$RowExtra['nomeExtra'].'</span>
+                    </label></div>';
 
                 }else{
 
                     echo 
                     '
-                        <div class="animated-checkbox">
-                            <label><input type="checkbox" onclick=inscreverExtra(this.id); id="codExtra_'.$RowExtra['codExtra'].'" data-nome="'.$RowExtra['nomeExtra'].'" name="minicursoCK[]" value="'.$RowExtra['codExtra'].'"><span class="label-text">'.$RowExtra['nomeExtra'].'</span>
-                            </label>
-                        </div>';
+                    <div class="list-group-item" style="margin-bottom: 1px">&nbsp;<label><input type="checkbox" onclick=inscreverExtra(this.id); id="codExtra_'.$RowExtra['codExtra'].'" data-nome="'.$RowExtra['nomeExtra'].'" name="minicursoCK[]" value="'.$RowExtra['codExtra'].'">
+                    <span class="list-group-item-text"><i class="fa fa-fw"></i>'.$RowExtra['nomeExtra'].'</span>
+                    </label></div>';
 
                 }
             }
+            echo '</div>';
         }
 
     }else{

@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/custom.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="../assets/fonts/font-awesome/css/font-awesome.min.css">
-    <title>VI Secomp - Login</title>
+    <title>VIII Secomp - Login</title>
 </head>
 
 <body>
