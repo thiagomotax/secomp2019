@@ -96,7 +96,7 @@
           <div>
             <ul class="breadcrumb side">
               <li><a href="viewPainel.php"><i class="mdi mdi-view-dashboard mdi-lg"></i></a></li>
-              <li><a href="viewPainel.php">Minicursos</i></a></li>
+              <li><a href="viewMinicursos.php">Minicursos</i></a></li>
               <li class="active">Cadastro</li>
             </ul>
           </div>

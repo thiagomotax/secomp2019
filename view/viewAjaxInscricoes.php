@@ -91,7 +91,7 @@
             echo raw_json_encode($datax);
 
         }else if($RowUsuarios['nivelUsuario'] == 1){
-            echo '<ul class="nav nav-tabs">
+            echo '<ul class="nav nav-tabs" id="mytab">
             <li class="active"><a data-toggle="tab" href="#home">Minicursos</a></li>
             <li><a data-toggle="tab" href="#menu1">Atividade extras</a></li>
           </ul>

@@ -90,10 +90,10 @@
       </aside>
       <div class="content-wrapper">
         <div class="page-title">
-          <div>
+        <div>
             <ul class="breadcrumb side">
               <li><a href="viewPainel.php"><i class="mdi mdi-view-dashboard mdi-lg"></i></a></li>
-              <li class="active">Minicursos</li>
+              <li><a href="#">Minicursos</i></a></li>
             </ul>
           </div>
         </div>

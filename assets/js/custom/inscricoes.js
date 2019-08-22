@@ -17,12 +17,16 @@ function inscreverMinicurso(codMinicurso){
     },
     function(isConfirm) {
       if (isConfirm) {
+        $body = $("body");
+        $body.addClass("loading");
         $.ajax({
+          cache:false,
           type:"POST",
           url:"../controller/InscricoesController.php",
           data: {acao: "inscrever", codMinicurso: array[1]},
           success: function(result){
             if(result == 1){
+              $body.removeClass("loading");
               $("#divMinicursos").load("viewAjaxInscricoes.php");
               $.notify({
                 title: "",
@@ -47,6 +51,7 @@ function inscreverMinicurso(codMinicurso){
                 }
               });
             }else if(result == 3){
+              $body.removeClass("loading");
               $("#divMinicursos").load("viewAjaxInscricoes.php");
               $.notify({
                 title: "",
@@ -71,6 +76,7 @@ function inscreverMinicurso(codMinicurso){
                 }
               });
             }else if(result == 4){
+              $body.removeClass("loading");
               $("#divMinicursos").load("viewAjaxInscricoes.php");
               $.notify({
                 title: "",
@@ -114,12 +120,15 @@ function inscreverMinicurso(codMinicurso){
     },
     function(isConfirm) {
       if (isConfirm) {
+        $body = $("body");
+        $body.addClass("loading");
         $.ajax({
           type:"POST",
           url:"../controller/InscricoesController.php",
           data: {acao: "cancInscricao", codMinicurso: array[1]},
           success: function(result){
             if(result == 1){
+              $body.removeClass("loading");
               $("#divMinicursos").load("viewAjaxInscricoes.php");
               $.notify({
                 title: "",
@@ -169,14 +178,18 @@ function inscreverExtra(codExtra){
     },
     function(isConfirm) {
       if (isConfirm) {
+        $body = $("body");
+        $body.addClass("loading");
         $.ajax({
+          cache:false,  
           type:"POST",
           url:"../controller/InscricoesExtraController.php",
           data: {acao: "inscrever", codExtra: array[1]},
           success: function(result){
-            if(result == 1){
+            if(result == 1){  
+              $body.removeClass("loading");
               $("#divMinicursos").load("viewAjaxInscricoes.php");
-              $.notify({
+                $.notify({
                 title: "",
                 message: "Inscrição " + nomeExtra + " realizada com sucesso! ",
                 icon: 'fa fa-check' 
@@ -218,12 +231,16 @@ function inscreverExtra(codExtra){
     },
     function(isConfirm) {
       if (isConfirm) {
+        $body = $("body");
+        $body.addClass("loading");
         $.ajax({
+          cache:false,
           type:"POST",
           url:"../controller/InscricoesExtraController.php",
           data: {acao: "cancInscricao", codExtra: array[1]},
           success: function(result){
             if(result == 1){
+              $body.removeClass("loading");
               $("#divMinicursos").load("viewAjaxInscricoes.php");
               $.notify({
                 title: '',
@@ -271,12 +288,16 @@ function excluirMinicurso(id)  {
     closeOnConfirm: true
   },
   function(){
+    $body = $("body");
+    $body.addClass("loading");
     $.ajax({
+      cache:false,
       type:"POST",
       url:"../controller/MinicursosController.php",
       data: {acao: "excluir", codMinicurso: codMinicurso},
       success: function(result){
         if(result == 1) {
+          $body.removeClass("loading");
           $.notify({
             title: "",
             message: "Minicurso excluído com sucesso!",
@@ -311,12 +332,17 @@ function excluirMinicurso(id)  {
 $(document).ready(function(){
   $('#btnEditarMinicurso').click(function(){
     var dados = $('#minicurso-form').serializeArray();
+    $body = $("body");
+    $body.addClass("loading");
     $.ajax({
+      cache:false,
       type:"POST",
       url:"../controller/MinicursosController.php",
       data:dados,
       success: function(result){
         if(result == 1){
+
+         $body.removeClass("loading");
           $.notify({
             title: "",
             message: "Minicurso alterado com sucesso!",
@@ -341,8 +367,10 @@ $(document).ready(function(){
           });
           setTimeout(function(){
               location.href = 'viewMinicursos.php';
-          }, 4000);
+          }, 2000);
         }else if(result == 2){
+
+          $body.removeClass("loading");
           $.notify({
             title: "",
             message: "Erro ao alterar o minicurso!",
@@ -368,7 +396,7 @@ $(document).ready(function(){
           });
           setTimeout(function(){
               location.href = 'viewMinicursos.php';
-          }, 4000);
+          }, 2000);
         }
       }
     });
@@ -380,12 +408,18 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('#btnCadastrarMinicurso').click(function(){
     var dados = $('#minicurso-form').serializeArray();
+    $body = $("body");
+    $body.addClass("loading");
+
     $.ajax({
+      cache:false,
       type:"POST",
       url:"../controller/MinicursosController.php",
       data:dados,
       success: function(result){
         if(result == 1){
+
+          $body.removeClass("loading");
           $("#minicurso-form")[0].reset();
           $.notify({
             title: "",
@@ -411,8 +445,9 @@ $(document).ready(function(){
           });
           setTimeout(function(){
               location.href = 'viewMinicursos.php';
-          }, 4000);
+          }, 2000);
         }else if(result == 2){
+          $body.removeClass("loading");
           $("#minicurso-form")[0].reset();
           $.notify({
             title: "",
@@ -439,7 +474,7 @@ $(document).ready(function(){
           });
           setTimeout(function(){
               location.href = 'viewMinicursos.php';
-          }, 4000);
+          }, 2000);
         }
       }
     });
@@ -469,6 +504,7 @@ $(document).ready(function(){
     $body = $("body");
     $body.addClass("loading");  
         $.ajax({
+          cache:false,
           type:"POST",
           url:"../controller/UsuariosController.php",
           data:dados,
@@ -479,7 +515,7 @@ $(document).ready(function(){
               $("#sign-form")[0].reset();
               setTimeout(function(){
                   location.href = 'viewLogin.php';
-              }, 5000);               
+              }, 2000);               
             }else if(result == 2){
               $body.removeClass("loading");
               swal("Oops...", "Erro ao realizar o cadastro! Tente novamente", "error");

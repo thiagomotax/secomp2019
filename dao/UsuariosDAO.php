@@ -231,22 +231,22 @@
                     // //convert HTML into a basic plain-text alternative body
                     // $mail->msgHTML("Olá teste você solicitou uma nova senha para acesso ao Sistema de Inscrições SECOMP 2018 - Campus Rio Pomba.</br> Sua nova senha de acesso é: <b> teste </b>");
 
-                    $assunto = '=?UTF-8?B?'.base64_encode("Sistema de Inscrições SECOMP 2018 - Campus Rio Pomba").'?=';
+                    $assunto = '=?UTF-8?B?'.base64_encode("Sistema de Inscrições SECOMP 2019 - Campus Rio Pomba").'?=';
                     $mail= new PHPMailer;
                     $mail->IsSMTP();        // Ativar SMTP
                     $mail->SMTPDebug = false;       // Debugar: 1 = erros e mensagens, 2 = mensagens apenas
                     $mail->SMTPAuth = true;
                     $mail->Charset = 'UTF-8';   // Autenticação ativada
                     $mail->SMTPSecure = 'ssl';  // SSL REQUERIDO pelo GMail
-                    $mail->Host = 'mail.emcomp.net.br'; // SMTP utilizado
+                    $mail->Host = 'smtp.gmail.com'; // SMTP utilizado
                     $mail->Port = 465; 
-                    $mail->Username = 'secomp@emcomp.net.br';
-                    $mail->Password = 's3c0mp';
+                    $mail->Username = 'thiagomotax@gmail.com';
+                    $mail->Password = '84068905titi';
                     $mail->IsHTML(true);
-                    $mail->SetFrom('secomp@emcomp.net.br', $assunto);
+                    $mail->SetFrom('thiagomotax@gmail.com', $assunto);
                     $mail->addAddress($RowIsCPFEmail['emailUsuario']);
                     $mail->Subject = utf8_decode(("Recuperação de senha de acesso ao sistema"));
-                    $mail->msgHTML("Olá ".$RowIsCPFEmail['nomeUsuario']." você solicitou uma nova senha para acesso ao Sistema de Inscrições SECOMP 2018 - Campus Rio Pomba.</br></br>
+                    $mail->msgHTML("Olá ".$RowIsCPFEmail['nomeUsuario']." você solicitou uma nova senha para acesso ao Sistema de Inscrições SECOMP 2019 - Campus Rio Pomba.</br></br>
 
                         Sua nova senha de acesso é: <b>".$novaSenha."</b>");
 

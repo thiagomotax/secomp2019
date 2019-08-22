@@ -112,7 +112,7 @@ $(document).ready(function(){
           });
           setTimeout(function(){
               location.href = 'viewExtras.php';
-          }, 4000);
+          }, 2000);
         }else if(result == 2){
           $.notify({
             title: "",
@@ -139,7 +139,7 @@ $(document).ready(function(){
           });
           setTimeout(function(){
               location.href = 'viewExtras.php';
-          }, 4000);
+          }, 2000);
         }
       }
     });
@@ -182,7 +182,7 @@ $(document).ready(function(){
           });
           setTimeout(function(){
               location.href = 'viewExtras.php';
-          }, 4000);
+          }, 2000);
         }else if(result == 2){
           $("#extra-form")[0].reset();
           $.notify({
@@ -210,7 +210,7 @@ $(document).ready(function(){
           });
           setTimeout(function(){
               location.href = 'viewExtras.php';
-          }, 4000);
+          }, 2000);
         }
       }
     });

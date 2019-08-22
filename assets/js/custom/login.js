@@ -48,6 +48,8 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('#btnResetSenha').click(function(){
     var dados = $('#form-reset').serializeArray();
+    $body = $("body");
+    $body.addClass("loading");
     $.ajax({
       type:"POST",
       url:"../controller/UsuariosController.php",
@@ -55,15 +57,19 @@ $(document).ready(function(){
       success: function(result){
 
         if(result == 1){
+          $body.removeClass("loading");
           swal("", "Senha recuperada com sucesso! Verifique seu email.", "success");
           $("#form-reset")[0].reset();
         }else if(result == 2){
+          $body.removeClass("loading");
           swal("Oops...", "Erro ao recuperar a senha! Tente novamente", "error");
           $("#form-reset")[0].reset();
         }else if(result == 3){
+          $body.removeClass("loading");
           swal("Oops...", "Dados incorretos! Tente novamente", "error");
           $("#form-reset")[0].reset();
         }else if(result == 4){
+          $body.removeClass("loading");
           swal("Oops...", "Erro ao enviar o email! Tente novamente", "error");
           $("#form-reset")[0].reset();
         }

@@ -111,9 +111,11 @@
       </aside>
       <div class="content-wrapper">
         <div class="page-title">
-          <div>
-            <ul class="breadcrumb">
-              <li><a><i class="mdi mdi-view-dashboard mdi-lg"></i> Painel</a></li>
+        <div>
+            <ul class="breadcrumb side">
+              <li><a href="viewPainel.php"><i class="mdi mdi-view-dashboard mdi-lg"></i></a></li>
+              <li><a href="viewMinicursos.php">Minicursos</i></a></li>
+              <li class="active">Relatório</li>
             </ul>
           </div>
         </div>

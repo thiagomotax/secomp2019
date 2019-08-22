@@ -105,8 +105,8 @@
       <div class="page-title">
           <div>
             <ul class="breadcrumb side">
-              <li><a href="viewPainel.php"><i class="mdi mdi-view-dashboard mdi-lg"></i></a></li>
-              <li class="active">Painel</li>
+              <li><a href="#"><i class="mdi mdi-view-dashboard mdi-lg"></i></a></li>
+              <li><a href="#">Painel</i></a></li>
             </ul>
           </div>
         </div>

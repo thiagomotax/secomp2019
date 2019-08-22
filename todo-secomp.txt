@@ -1,0 +1,9 @@
+email de confirmação de inscrição
+remover alert view inscricoes minicurso
+
+
+
+
+loading logiin
+
+arrumar cards de extras e minicursos

@@ -97,13 +97,37 @@
             }
           ?>
         </section>
+      
+    <style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(255, 255, 255, .8) url('../assets/images/loading.gif') 50% 50% no-repeat;
+    }
+
+    /* enquanto estiver carregando, o scroll da página estará desativado */
+    body.loading {
+        overflow: hidden;
+    }
+
+    /* a partir do momento em que o body estiver com a classe loading,  o modal aparecerá */
+    body.loading .modal {
+        display: block;
+    }
+    </style>
+    <div class="modal"></div>
       </aside>
       <div class="content-wrapper">
         <div class="page-title">
           <div>
             <ul class="breadcrumb side">
               <li><a href="viewPainel.php"><i class="mdi mdi-view-dashboard mdi-lg"></i></a></li>
-              <li class="active">Inscrições</li>
+              <li><a href="#">Inscrições</i></a></li>
             </ul>
           </div>
         </div>
@@ -182,16 +206,41 @@
         </div>
       </div>
     </div>
+    <style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(255, 255, 255, .8) url('../assets/images/loading.gif') 50% 50% no-repeat;
+    }
+
+    /* enquanto estiver carregando, o scroll da página estará desativado */
+    body.loading {
+        overflow: hidden;
+    }
+
+    /* a partir do momento em que o body estiver com a classe loading,  o modal aparecerá */
+    body.loading .modal {
+        display: block;
+    }
+    </style>
+    <div class="modal"></div>
     <script src="../assets/js/jquery-2.1.4.min.js"></script>
+
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/pace.min.js"></script>
     <script src="../assets/js/main.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
     <script src="../assets/js/custom/inscricoes.js"></script>
-    <script src="../assets/js/custom/jogos.min.js"></script>
     <script src="../assets/js/plugins/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/bootstrap-notify.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/sweetalert.min.js" type="text/javascript"></script>
+</script>
     <script type="text/javascript">
       $(document).ready(function() {
         var oTable = $('#sampleTable').dataTable( {
