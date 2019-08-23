@@ -37,7 +37,7 @@
                 $data[$i]{'ministranteMinicurso'} = $RowMinicursos['ministranteMinicurso'];
                 $data[$i]{'vagasMinicurso'} = $RowMinicursos['vagasMinicurso'];
                 $data[$i]{'vagasRestantesMinicurso'} = ($RowMinicursos['vagasMinicurso'] - $stmtVagasMinicursos->rowCount());
-                $data[$i]{'informacoesMinicurso'} = substr_replace($RowMinicursos['informacoesMinicurso'],'...', 100);
+                $data[$i]{'informacoesMinicurso'} = substr_replace($RowMinicursos['informacoesMinicurso'],'...', 10);
                 $data[$i]{'buttons'} =
                 '<li class="dropdown list-none">
                   <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="mdi mdi-settings"></span></a>

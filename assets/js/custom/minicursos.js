@@ -29,7 +29,7 @@ $(document).ready(function() {
       },
       "info": false,
       "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
-      responsive: true,
+      "responsive": true,
       language: {
       }
   }); 

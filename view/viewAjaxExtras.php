@@ -31,7 +31,7 @@
 
                 $data[$i]{'codExtra'} = $RowExtras['codExtra'];
                 $data[$i]{'nomeExtra'} = $RowExtras['nomeExtra'];
-                $data[$i]{'infoExtra'} = substr_replace($RowExtras['infoExtra'],'...', 100);
+                $data[$i]{'infoExtra'} = substr_replace($RowExtras['infoExtra'],'...', 10);
                 $data[$i]{'buttons'} =
                 '<li class="dropdown list-none">
                   <a class="dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="mdi mdi-settings"></span></a>

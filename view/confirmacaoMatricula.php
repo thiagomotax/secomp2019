@@ -103,7 +103,7 @@
                 $pdf->SetX((25));
                 $pdf->SetTextColor(0, 0, 0);
                 $pdf->SetFont('Times', "", 12);
-                $pdf->Cell(170, 7, str_replace(" ? ", " - ", utf8_decode($RowInscritos['informacoesMinicurso'])), false, 0, "L", 0);
+                $pdf->MultiCell(0, 4, str_replace(" ? ", " - ", utf8_decode($RowInscritos['informacoesMinicurso'])));
 
             }
 
@@ -137,7 +137,7 @@
                 $pdf->SetX((25));
                 $pdf->SetTextColor(0, 0, 0);
                 $pdf->SetFont('Times', "", 12);
-                $pdf->Cell(170, 7, str_replace(" ? ", " - ", utf8_decode($RowExtrasInscritos['infoExtra'])), false, 0, "L", 0);
+                $pdf->MultiCell(0, 4, str_replace(" ? ", " - ", utf8_decode($RowExtrasInscritos['infoExtra'])));
 
             }
 

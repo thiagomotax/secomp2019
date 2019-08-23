@@ -22,6 +22,7 @@ function inscreverMinicurso(codMinicurso){
         $.ajax({
           cache:false,
           type:"POST",
+          timeout: 10000,
           url:"../controller/InscricoesController.php",
           data: {acao: "inscrever", codMinicurso: array[1]},
           success: function(result){
@@ -101,7 +102,35 @@ function inscreverMinicurso(codMinicurso){
                 }
               });
             }
-          }
+          },
+          error: function(){
+            $body.removeClass("loading");
+            $.notify({
+              title: '',
+              message: "Tempo limite de requisição. A página será recarregada. Tente novamente!",
+              icon: 'fa fa-check' 
+            },{
+              type: "danger",
+              placement: {
+                from: "top",
+                align: "right",
+              },
+              offset: 20,
+              spacing: 10,
+              z_index: 1031,
+              delay: 5000,
+              timer: 1000,
+              url_target: '_blank',
+              mouse_over: null,
+              animate: {
+                enter: 'animated fadeInDown',
+                exit: 'animated fadeOutUp'
+              }
+            });
+            setTimeout(function() {
+              location.reload();
+          }, 3000);
+        },
         });
       }else {
         $("#divMinicursos").load("viewAjaxInscricoes.php");
@@ -125,6 +154,7 @@ function inscreverMinicurso(codMinicurso){
         $.ajax({
           cache: false,
           type:"POST",
+          timeout: 10000,
           url:"../controller/InscricoesController.php",
           data: {acao: "cancInscricao", codMinicurso: array[1]},
           success: function(result){
@@ -154,7 +184,35 @@ function inscreverMinicurso(codMinicurso){
                 }
               });
             }
-          }
+          },
+          error: function(){
+            $body.removeClass("loading");
+            $.notify({
+              title: '',
+              message: "Tempo limite de requisição. A página será recarregada. Tente novamente!",
+              icon: 'fa fa-check' 
+            },{
+              type: "danger",
+              placement: {
+                from: "top",
+                align: "right",
+              },
+              offset: 20,
+              spacing: 10,
+              z_index: 1031,
+              delay: 5000,
+              timer: 1000,
+              url_target: '_blank',
+              mouse_over: null,
+              animate: {
+                enter: 'animated fadeInDown',
+                exit: 'animated fadeOutUp'
+              }
+            });
+            setTimeout(function() {
+              location.reload();
+          }, 3000);
+        },
         });
       }else {
         $("#divMinicursos").load("viewAjaxInscricoes.php");
@@ -182,14 +240,17 @@ function inscreverExtra(codExtra){
         $body = $("body");
         $body.addClass("loading");
         $.ajax({
-          cache:false,  
+          cache:false,
           type:"POST",
           url:"../controller/InscricoesExtraController.php",
           data: {acao: "inscrever", codExtra: array[1]},
+          timeout:10000,
           success: function(result){
             if(result == 1){  
               $body.removeClass("loading");
-              $("#divMinicursos").load("viewAjaxInscricoes.php");
+              $("#divMinicursos").load("viewAjaxInscricoes.php", function(response) {
+                $('.nav-tabs a[href="#menu1"]').tab('show');
+              });
                 $.notify({
                 title: "",
                 message: "Inscrição " + nomeExtra + " realizada com sucesso! ",
@@ -213,11 +274,40 @@ function inscreverExtra(codExtra){
                 }
               });        
             }
-          }
+          },
+          error: function(){
+            $body.removeClass("loading");
+            $.notify({
+              title: '',
+              message: "Tempo limite de requisição. A página será recarregada. Tente novamente!",
+              icon: 'fa fa-check' 
+            },{
+              type: "danger",
+              placement: {
+                from: "top",
+                align: "right",
+              },
+              offset: 20,
+              spacing: 10,
+              z_index: 1031,
+              delay: 5000,
+              timer: 1000,
+              url_target: '_blank',
+              mouse_over: null,
+              animate: {
+                enter: 'animated fadeInDown',
+                exit: 'animated fadeOutUp'
+              }
+            });
+            setTimeout(function() {
+              location.reload();
+          }, 3000);
+        },
         });
       }else {
-        $("#divMinicursos").load("viewAjaxInscricoes.php");
-      }
+        $("#divMinicursos").load("viewAjaxInscricoes.php", function(response) {
+          $('.nav-tabs a[href="#menu1"]').tab('show');
+        });      }
     });
   }else{
     swal({
@@ -237,12 +327,15 @@ function inscreverExtra(codExtra){
         $.ajax({
           cache:false,
           type:"POST",
+          timeout: 10000,
           url:"../controller/InscricoesExtraController.php",
           data: {acao: "cancInscricao", codExtra: array[1]},
           success: function(result){
             if(result == 1){
               $body.removeClass("loading");
-              $("#divMinicursos").load("viewAjaxInscricoes.php");
+              $("#divMinicursos").load("viewAjaxInscricoes.php", function(response) {
+                $('.nav-tabs a[href="#menu1"]').tab('show');
+              });
               $.notify({
                 title: '',
                 message: "Inscrição no extra " + nomeExtra + " cancelada com sucesso! ",
@@ -266,11 +359,40 @@ function inscreverExtra(codExtra){
                 }
               });
             }
-          }
+          },
+          error: function(){
+            $body.removeClass("loading");
+            $.notify({
+              title: '',
+              message: "Tempo limite de requisição. A página será recarregada. Tente novamente!",
+              icon: 'fa fa-check' 
+            },{
+              type: "danger",
+              placement: {
+                from: "top",
+                align: "right",
+              },
+              offset: 20,
+              spacing: 10,
+              z_index: 1031,
+              delay: 5000,
+              timer: 1000,
+              url_target: '_blank',
+              mouse_over: null,
+              animate: {
+                enter: 'animated fadeInDown',
+                exit: 'animated fadeOutUp'
+              }
+            });
+            setTimeout(function() {
+              location.reload();
+          }, 3000);
+        },
         });
       }else {
-        $("#divMinicursos").load("viewAjaxInscricoes.php");
-      }
+        $("#divMinicursos").load("viewAjaxInscricoes.php", function(response) {
+          $('.nav-tabs a[href="#menu1"]').tab('show');
+        });      }
     });
   }
 }
@@ -294,6 +416,7 @@ function excluirMinicurso(id)  {
     $.ajax({
       cache:false,
       type:"POST",
+      timeout: 10000,
       url:"../controller/MinicursosController.php",
       data: {acao: "excluir", codMinicurso: codMinicurso},
       success: function(result){
@@ -324,7 +447,35 @@ function excluirMinicurso(id)  {
           var table = $('#sampleTable').DataTable();
           table.ajax.reload( null, false );
         }
-      }
+      },
+      error: function(){
+        $body.removeClass("loading");
+        $.notify({
+          title: '',
+          message: "Tempo limite de requisição. A página será recarregada. Tente novamente!",
+          icon: 'fa fa-check' 
+        },{
+          type: "danger",
+          placement: {
+            from: "top",
+            align: "right",
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+          delay: 5000,
+          timer: 1000,
+          url_target: '_blank',
+          mouse_over: null,
+          animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+          }
+        });
+        setTimeout(function() {
+          location.reload();
+      }, 3000);
+    },
     });
   });
 }
@@ -338,11 +489,11 @@ $(document).ready(function(){
     $.ajax({
       cache:false,
       type:"POST",
+      timeout: 10000,
       url:"../controller/MinicursosController.php",
       data:dados,
       success: function(result){
         if(result == 1){
-
          $body.removeClass("loading");
           $.notify({
             title: "",
@@ -399,7 +550,32 @@ $(document).ready(function(){
               location.href = 'viewMinicursos.php';
           }, 2000);
         }
-      }
+      },
+      error: function(){
+        $body.removeClass("loading");
+        $.notify({
+          title: '',
+          message: "Tempo limite de requisição. Tente novamente!",
+          icon: 'fa fa-check' 
+        },{
+          type: "danger",
+          placement: {
+            from: "top",
+            align: "right",
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+          delay: 5000,
+          timer: 1000,
+          url_target: '_blank',
+          mouse_over: null,
+          animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+          }
+        });
+    },
     });
     return false;
   });
@@ -412,14 +588,14 @@ $(document).ready(function(){
     $body = $("body");
     $body.addClass("loading");
 
-    $.ajaxSetup({
+    $.ajax({
       cache:false,
       type:"POST",
+      timeout: 10000,
       url:"../controller/MinicursosController.php",
       data:dados,
       success: function(result){
         if(result == 1){
-
           $body.removeClass("loading");
           $("#minicurso-form")[0].reset();
           $.notify({
@@ -477,7 +653,32 @@ $(document).ready(function(){
               location.href = 'viewMinicursos.php';
           }, 2000);
         }
-      }
+      },
+      error: function(){
+        $body.removeClass("loading");
+        $.notify({
+          title: '',
+          message: "Tempo limite de requisição. Tente novamente!",
+          icon: 'fa fa-check' 
+        },{
+          type: "danger",
+          placement: {
+            from: "top",
+            align: "right",
+          },
+          offset: 20,
+          spacing: 10,
+          z_index: 1031,
+          delay: 5000,
+          timer: 1000,
+          url_target: '_blank',
+          mouse_over: null,
+          animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+          }
+        });
+    },
     });
     return false;
   });
@@ -507,6 +708,7 @@ $(document).ready(function(){
     $.ajax({
           cache:false,
           type:"POST",
+          timeout: 10000,
           url:"../controller/UsuariosController.php",
           data:dados,
           success: function(result){
@@ -574,7 +776,32 @@ $(document).ready(function(){
                 }
               });
             }
-          }
+          },
+          error: function(){
+            $body.removeClass("loading");
+            $.notify({
+              title: '',
+              message: "Tempo limite de requisição. Tente novamente!",
+              icon: 'fa fa-check' 
+            },{
+              type: "danger",
+              placement: {
+                from: "top",
+                align: "right",
+              },
+              offset: 20,
+              spacing: 10,
+              z_index: 1031,
+              delay: 5000,
+              timer: 1000,
+              url_target: '_blank',
+              mouse_over: null,
+              animate: {
+                enter: 'animated fadeInDown',
+                exit: 'animated fadeOutUp'
+              }
+            });
+        },
         });
     return false;
       }

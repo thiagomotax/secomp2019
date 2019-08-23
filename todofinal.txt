@@ -1,0 +1,4 @@
+migrar site wordpress pro novo servidor
+arrumar email recuperacao de senha
+arrumar tabs
+arrumar pdf cortando

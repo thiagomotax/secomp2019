@@ -113,7 +113,7 @@
                           <thead>
                             <tr>
                               <th width="5%">#</th>
-                              <th width="40%%">Nome</th>
+                              <th width="40%">Nome</th>
                               <th width="50%">Informações</th>
                               <th width="5%">Ações</th>
                             </tr>
@@ -138,6 +138,8 @@
     <script src="../assets/js/plugins/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/bootstrap-notify.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/sweetalert.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.js"></script>
+
     <script type="text/javascript">
       $(document).ready(function(){
         $("#divMinicursos").load("viewAjaxExtras.php");

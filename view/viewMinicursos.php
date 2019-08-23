@@ -136,11 +136,13 @@
     <script src="../assets/js/bootstrap.min.js"></script>
     <script src="../assets/js/plugins/pace.min.js"></script>
     <script src="../assets/js/main.min.js"></script>
-    <script src="../assets/js/custom/minicursos.min.js"></script>
+    <script src="../assets/js/custom/minicursos.js"></script>
     <script src="../assets/js/plugins/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/bootstrap-notify.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/sweetalert.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.js"></script>
+
     <script type="text/javascript">
       $(document).ready(function(){
         $("#divMinicursos").load("viewAjaxMinicursos.php");

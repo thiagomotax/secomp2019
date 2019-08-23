@@ -94,7 +94,7 @@
           ?>
         </section>
     <style>
-    .modal {
+    .fuck {
         display: none;
         position: fixed;
         z-index: 1000;
@@ -111,11 +111,11 @@
     }
 
     /* a partir do momento em que o body estiver com a classe loading,  o modal aparecerá */
-    body.loading .modal {
+    body.loading .fuck {
         display: block;
     }
     </style>
-    <div class="modal"></div>
+    <div class="fuck"></div>
       </aside>
       <div class="content-wrapper">
         <div class="page-title">
