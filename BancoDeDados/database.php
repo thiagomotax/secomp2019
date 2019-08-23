@@ -1,9 +1,9 @@
 <?php
 class Database
 {   
-    // private $host = "143.208.8.46";
-    // private $db_name = "emcomprp_secomp";
-    // private $username = "emcomprp_root";
+    // private $host = "localhost";
+    // private $db_name = "secomp14_emcomp";
+    // private $username = "secomp14_root";
     // private $password = "84068905Titi";
     // public $conn;
     // private $host = "143.208.8.46";

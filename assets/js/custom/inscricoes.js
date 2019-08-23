@@ -123,6 +123,7 @@ function inscreverMinicurso(codMinicurso){
         $body = $("body");
         $body.addClass("loading");
         $.ajax({
+          cache: false,
           type:"POST",
           url:"../controller/InscricoesController.php",
           data: {acao: "cancInscricao", codMinicurso: array[1]},
@@ -411,7 +412,7 @@ $(document).ready(function(){
     $body = $("body");
     $body.addClass("loading");
 
-    $.ajax({
+    $.ajaxSetup({
       cache:false,
       type:"POST",
       url:"../controller/MinicursosController.php",
@@ -503,7 +504,7 @@ $(document).ready(function(){
     var dados = $('#sign-form').serializeArray();
     $body = $("body");
     $body.addClass("loading");  
-        $.ajax({
+    $.ajax({
           cache:false,
           type:"POST",
           url:"../controller/UsuariosController.php",
