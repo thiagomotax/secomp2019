@@ -79,6 +79,7 @@
 
                 echo
                 '
+                <style>.row {word-wrap: break-word;}</style>
                       <div class="col-md-6 col-md-offset-0 margin-top--25">
                         <div class="card">
                             <div class="card-body" style="min-height: 120px; height: auto">

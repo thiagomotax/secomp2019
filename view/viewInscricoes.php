@@ -33,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/main.min.css">
     <link rel="stylesheet" href="../assets/css/materialdesignicons.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.dataTables.min.css">
     <link rel="stylesheet" href="../assets/css/bootstrap-checkbox-radio-list-group-item.min.css">
     <title>VIII Secomp - Inscrições</title>
   </head>
@@ -185,7 +186,7 @@
                             <tr>
                               <th class="text-center" width="5%">#</th>
                               <th class="text-center" width="20%">Nome</th>
-                              <th class="text-center" width="10%">CPF</th>
+                              <th class="text-center" width="20%">CPF</th>
                               <th class="text-center" width="20%">Minicursos</th>
                               <th class="text-center" width="10%">Data inscrição</th>
                             </tr>
@@ -240,6 +241,7 @@
     <script src="../assets/js/plugins/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/bootstrap-notify.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/sweetalert.min.js" type="text/javascript"></script>
+    <script src="../assets/js/plugins/dataTables.responsive.min.js" type="text/javascript"></script>
 </script>
     <script type="text/javascript">
       $(document).ready(function() {
@@ -268,7 +270,7 @@
             },
             "info": false,
             "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "Todos"]],
-            responsive: true,
+            "responsive": true,
             language: {
             }
         }); 

@@ -25,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/main.min.css">
     <link rel="stylesheet" href="../assets/css/materialdesignicons.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/responsive.dataTables.min.css">
     <title>VIII Secomp - Painel</title>
   </head>
   <body class="sidebar-mini fixed">
@@ -138,7 +139,7 @@
     <script src="../assets/js/plugins/dataTables.bootstrap.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/bootstrap-notify.min.js" type="text/javascript"></script>
     <script src="../assets/js/plugins/sweetalert.min.js" type="text/javascript"></script>
-    <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.js"></script>
+    <script src="../assets/js/plugins/dataTables.responsive.min.js" type="text/javascript"></script>
 
     <script type="text/javascript">
       $(document).ready(function(){

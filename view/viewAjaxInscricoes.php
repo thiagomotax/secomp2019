@@ -67,7 +67,7 @@
         		$data[$i]{'cpfUsuario'} = mask($RowInscricoes['cpfUsuario'],'###.###.###-##');
         		$data[$i]{'nomeMinicurso'} = $RowInscricoes['nomeMinicurso'];
                 $data[$i]{'dataInscricao'} = date('d/m/Y',strtotime($RowInscricoes['dataInscricao']));
-        		$i++;
+                $i++;
 
         	}
 
