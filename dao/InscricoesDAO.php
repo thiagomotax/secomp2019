@@ -24,7 +24,7 @@
                 $id = $Inscricoes->getId();
                 $usuario = $Inscricoes->getUsuario();
                 $data = $Inscricoes->getData();
-
+                $tipo = $Inscricoes->getTipo();
                 $stmtVagasMinicursos = $this->conn->prepare("SELECT * FROM minicursos WHERE codMinicurso = '".$id."'");
                 $stmtVagasMinicursos->execute();
                 $RowVagasMinicursos = $stmtVagasMinicursos->fetch(PDO::FETCH_ASSOC);
@@ -35,9 +35,19 @@
                 $stmtInscricoesUsuario = $this->conn->prepare("SELECT * FROM inscricoes WHERE codUsuario = '".$usuario."'");
                 $stmtInscricoesUsuario->execute();
 
+                $stmtTipoInscricaoUsuario= $this->conn->prepare("SELECT * FROM inscricoes, minicursos WHERE inscricoes.codUsuario = '".$usuario."' 
+                AND minicursos.codMinicurso = inscricoes.codMinicurso AND minicursos.horarioMinicurso = $tipo");
+                $stmtTipoInscricaoUsuario->execute();
+
+                //vejo em inscricoes se esse usuario ja tem uma inscricao nesse tipo de horario
+                //pego o tipo do que ele ta se inscrevendo e verifico se ele já tem uma nesse tipo
                 if($stmtInscricoesUsuario->rowCount() >= 3 ){
                     echo 4;
-                }else{
+                }
+                else if($stmtTipoInscricaoUsuario->rowCount() > 0){
+                    echo 13;
+                }
+                else{
                     $stmtInscricoes->rowCount();
                     $vagasRestantes = ($RowVagasMinicursos['vagasMinicurso'] - $stmtInscricoes->rowCount());
 

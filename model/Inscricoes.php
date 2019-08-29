@@ -5,7 +5,7 @@
         private $id;
         private $usuario;
         private $data;
-        private $hora;
+        private $tipo;
         
         public function getId() {
             return $this->id;
@@ -19,10 +19,17 @@
             return $this->usuario;
         }
 
+        public function getTipo(){
+            return $this->tipo;
+        }
+
          public function setUsuario($usuario) {
             $this->usuario = $usuario;
         }
 
+        public function setTipo($tipo){
+            $this->tipo = $tipo;
+        }
         public function getData() {
             return $this->data;
         }

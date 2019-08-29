@@ -117,8 +117,8 @@
 
                     echo 
                     '
-                    <div class="list-group-item" style="margin-bottom: 1px">&nbsp;<label><input type="checkbox" onclick=inscreverMinicurso(this.id); id="codMinicurso_'.$RowMinicursos['codMinicurso'].'" data-nome="'.$RowMinicursos['nomeMinicurso'].'" name="minicursoCK[]" value="'.$RowMinicursos['codMinicurso'].'" checked>
-                    <span class="list-group-item-text"><i class="fa fa-fw"></i>'.$RowMinicursos['nomeMinicurso'].'  ( '.($RowMinicursos['vagasMinicurso'] - $stmtVagasMinicursos->rowCount()).' vagas )</span>
+                    <div class="list-group-item" style="margin-bottom: 1px">&nbsp;<label><input type="checkbox" onclick=inscreverMinicurso(this.id); id="codMinicurso_'.$RowMinicursos['codMinicurso'].'" data-nome="'.$RowMinicursos['nomeMinicurso'].'" data-tipo="'.$RowMinicursos['horarioMinicurso'].'" name="minicursoCK[]" value="'.$RowMinicursos['codMinicurso'].'" checked>
+                    <span class="list-group-item-text"><i class="fa fa-fw"></i>'.$RowMinicursos['nomeMinicurso'].'  <b style="color: red">( '.($RowMinicursos['vagasMinicurso'] - $stmtVagasMinicursos->rowCount()).' vagas )</b> - <em>'.$RowMinicursos['dataMinicurso'].'</em></span>
                     </label></div>
 
                         ';
@@ -127,8 +127,8 @@
 
                     echo 
                     '
-                    <div class="list-group-item style="margin-bottom: 1px"">&nbsp;<label><input type="checkbox" onclick=inscreverMinicurso(this.id); id="codMinicurso_'.$RowMinicursos['codMinicurso'].'" data-nome="'.$RowMinicursos['nomeMinicurso'].'" name="minicursoCK[]" value="'.$RowMinicursos['codMinicurso'].'">
-                    <span class="list-group-item-text"><i class="fa fa-fw"></i>'.$RowMinicursos['nomeMinicurso'].'  ( '.($RowMinicursos['vagasMinicurso'] - $stmtVagasMinicursos->rowCount()).' vagas )</span>
+                    <div class="list-group-item style="margin-bottom: 1px"">&nbsp;<label><input type="checkbox" onclick=inscreverMinicurso(this.id); id="codMinicurso_'.$RowMinicursos['codMinicurso'].'" data-nome="'.$RowMinicursos['nomeMinicurso'].'" data-tipo="'.$RowMinicursos['horarioMinicurso'].'" name="minicursoCK[]" value="'.$RowMinicursos['codMinicurso'].'">
+                    <span class="list-group-item-text"><i class="fa fa-fw"></i>'.$RowMinicursos['nomeMinicurso'].'  <b style="color: red">( '.($RowMinicursos['vagasMinicurso'] - $stmtVagasMinicursos->rowCount()).' vagas )</b> - <em>'.$RowMinicursos['dataMinicurso'].'</em>  </span>
                     </label></div>';
 
                 }

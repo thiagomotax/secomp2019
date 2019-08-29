@@ -33,12 +33,14 @@
         $db = new Database();
         $dao = new InscricoesDAO($db);
         $id = $_POST['codMinicurso'];
+        $tipo = $_POST['tipo'];
         $usuario =  $_SESSION['user_id'];
         $data = date("Y-m-d");
         $Inscricoes = new Inscricoes();
         $Inscricoes->setId($id);
         $Inscricoes->setUsuario($usuario);
         $Inscricoes->setData($data);
+        $Inscricoes->setTipo($tipo);
         $dao->addInscricaoMinicurso($Inscricoes);
     }
 

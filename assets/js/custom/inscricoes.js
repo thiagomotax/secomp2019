@@ -4,6 +4,7 @@ $(document).ready(function(){
 function inscreverMinicurso(codMinicurso){
   var array = codMinicurso.split("_");
   var descricaoMinicurso = $('#'+codMinicurso).attr("data-nome");
+  var tipo = $('#'+codMinicurso).attr("data-tipo");
   if($("#"+codMinicurso).is(':checked')){
     swal({
       title: '',
@@ -24,7 +25,7 @@ function inscreverMinicurso(codMinicurso){
           type:"POST",
           timeout: 10000,
           url:"../controller/InscricoesController.php",
-          data: {acao: "inscrever", codMinicurso: array[1]},
+          data: {acao: "inscrever", codMinicurso: array[1], tipo: tipo},
           success: function(result){
             if(result == 1){
               $body.removeClass("loading");
@@ -82,6 +83,32 @@ function inscreverMinicurso(codMinicurso){
               $.notify({
                 title: "",
                 message: "Você só pode ter inscrição em até 3 minicursos! ",
+                icon: 'fa fa-times' 
+              },{
+                type: "danger",
+                placement: {
+                  from: "top",
+                  align: "right",
+                },
+                offset: 20,
+                spacing: 10,
+                z_index: 1031,
+                delay: 5000,
+                timer: 1000,
+                url_target: '_blank',
+                mouse_over: null,
+                animate: {
+                  enter: 'animated fadeInDown',
+                  exit: 'animated fadeOutUp'
+                }
+              });
+            }
+            else if(result == 13){
+              $body.removeClass("loading");
+              $("#divMinicursos").load("viewAjaxInscricoes.php");
+              $.notify({
+                title: "",
+                message: "Você já participa de um minicurso nesse horário! ",
                 icon: 'fa fa-times' 
               },{
                 type: "danger",

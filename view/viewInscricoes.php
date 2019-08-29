@@ -8,6 +8,7 @@
       require_once("../dao/UsuariosDAO.php");
       require_once("../dao/ConfiguracoesDAO.php");
       require_once("../dao/MinistrantesDAO.php");
+      require_once("../dao/InscricoesDAO.php");
       require_once("../dao/JogosDAO.php");
 
 
@@ -20,6 +21,11 @@
       $stmtConfiguracoes = $ConfiguracoesDAO->runQuery("SELECT * FROM configuracoes");
       $stmtConfiguracoes->execute();
       $RowConfiguracoes = $stmtConfiguracoes->fetch(PDO::FETCH_ASSOC);
+
+      $InscricoesDAO = new InscricoesDAO();
+      $stmtInscricoes = $InscricoesDAO->runQuery("SELECT * FROM inscricoes, minicursos WHERE inscricoes.codUsuario = ".$_SESSION['user_id']." AND minicursos.codMinicurso = inscricoes.codMinicurso");
+      $stmtInscricoes->execute();
+
 
 ?>
 <!DOCTYPE html>
@@ -178,7 +184,21 @@
                       <div class="col-md-12 text-center">
                         <a href="confirmacaoMatricula.php" class="btn btn-primary btn-block" target="_blank">Gerar relatório de inscrições</a>
                       </div>
-                    </div>';
+                    </div>
+                    ';
+                    $contTipo1 = 0; $contTipo2 = 0; $contTipo3 = 0;
+                      while ($RowInscricoes = $stmtInscricoes->fetch(PDO::FETCH_ASSOC)) {
+                        if($RowInscricoes['horarioMinicurso'] == 1)$contTipo1++;
+                        else if($RowInscricoes['horarioMinicurso'] == 2)$contTipo2++;
+                        else if($RowInscricoes['horarioMinicurso'] == 3)$contTipo3++;
+                      }
+                      
+                        if($contTipo1 > 1 || $contTipo2 > 1 || $contTipo3 > 1){
+                          echo '<script type="text/javascript">window.onload = function() {
+                            swal("Atenção!","Você possui inscrições em minicursos de mesmo horário. Por favor, verifique para evitar cancelamentos!","warning");
+                          };</script>';
+                        }
+                      
                     }else if($RowUsuarios['nivelUsuario'] == 0){
                       echo 
                         '<table class="table table-hover table-bordered  table-custom" id="sampleTable">
